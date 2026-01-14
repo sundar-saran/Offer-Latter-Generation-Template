@@ -1,0 +1,159 @@
+﻿body {
+    background: #f4f6f8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* TOOLBAR */
+.toolbar-top {
+    position: sticky;
+    top: 70px;
+    background: #ffffff;
+    padding: 10px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* GROUPS */
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* SELECTS */
+.toolbar-top .form-select {
+    height: 34px;
+    font-size: 14px;
+    min-width: 130px;
+}
+
+/* EDITOR TOOLBAR */
+.editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+    /* BUTTONS */
+    .editor-toolbar button {
+        background: #f1f3f5;
+        color: #000;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .editor-toolbar button:hover {
+            background: #0d6efd;
+            color: #fff;
+        }
+
+/* TABLE BUTTON */
+.table-btn {
+    font-weight: bold;
+}
+
+/* DIVIDER */
+.divider {
+    width: 1px;
+    height: 22px;
+    background: #ccc;
+    margin: 0 6px;
+}
+
+
+/* PAGE */
+.page {
+    background: #fff;
+    margin: 30px auto;
+    padding: 50px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+    /* CORRECT PAPER SIZES */
+    .page.A4 {
+        width: 794px;
+        height: 1123px;
+    }
+
+    .page.Letter {
+        width: 816px;
+        height: 1056px;
+    }
+
+/* BOTTOM BAR */
+.bottom-action-bar {
+    position: sticky;
+    bottom: 0;
+    background: #ffffff;
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
+}
+#documentArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.company-title {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.offer-subtitle {
+    text-align: center;
+    margin-top: 0;
+}
+
+
+.table-picker {
+    position: absolute;
+    top: 50px;
+    left:500px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(6, 22px);
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+    .table-picker.hidden {
+        display: none;
+    }
+
+.table-cell {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+    .table-cell.active {
+        background-color: #4a90e2;
+        border-color: #357abd;
+    }
+#companyTemplate:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+    opacity: 0.7;
+}

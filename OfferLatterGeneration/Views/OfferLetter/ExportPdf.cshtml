@@ -1,0 +1,39 @@
+﻿@model OfferLatterGeneration.Models.OfferLetterModel
+    @{ 
+        Layout = null;
+    }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Offer Letter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .page {
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    @Html.Raw(Model.LetterBody)
+</body>
+</html>

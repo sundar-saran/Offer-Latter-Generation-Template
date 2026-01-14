@@ -1,0 +1,46 @@
+﻿@model List<OfferLatterGeneration.Models.OfferLetterModel>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Offer Letter Management</h2>
+
+    <a href="@Url.Action("Create", "OfferLetter")"
+       class="btn btn-success">
+        + Create Offer Letter
+    </a>
+
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Location</th>
+            <th style="width:180px">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CandidateName</td>
+                <td>@item.Designation</td>
+                <td>@item.Department</td>
+                <td>@item.Location</td>
+                
+
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       href="@Url.Action("Edit", "OfferLetter", new { id = item.Id })">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm ms-1"
+                       href="@Url.Action("ExportPdf", "OfferLetter", new { id = item.Id })">
+                        PDF
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

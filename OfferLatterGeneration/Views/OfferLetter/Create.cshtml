@@ -1,0 +1,145 @@
+﻿@model OfferLatterGeneration.Models.OfferLetterModel
+<link href="~/Content/offerletter.css" rel="stylesheet" />
+
+<input type="hidden" id="OfferLetterId" value="@Model.Id" />
+<input type="hidden" id="fallback_CandidateName" value="@Model.CandidateName" />
+<input type="hidden" id="fallback_Designation" value="@Model.Designation" />
+<input type="hidden" id="fallback_Department" value="@Model.Department" />
+<input type="hidden" id="fallback_Location" value="@Model.Location" />
+<input type="hidden" id="fallback_Salary" value="@Model.Salary" />
+<input type="hidden" id="fallback_JoiningDate" value="@Model.JoiningDate" />
+
+
+<div class="toolbar-top">
+
+    <!-- LEFT CONTROLS -->
+    <div class="toolbar-group">
+        <select id="companyTemplate"
+                class="form-select"
+                onchange="onCompanyTemplateChange()"
+                @(Model.Id > 0 ? "disabled" : "")>
+            <option value="default">Default</option>
+            <option value="arit">ARIT</option>
+            <option value="other">Other</option>
+        </select>
+
+        <select id="pageSize" class="form-select" onchange="changePageSize()">
+            <option value="A4">A4</option>
+            <option value="Letter">Letter</option>
+        </select>
+    </div>
+
+    <!-- EDITOR BUTTONS -->
+    <div class="editor-toolbar">
+        <button onclick="format('bold')"><b>B</b></button>
+        <button onclick="format('italic')"><i>I</i></button>
+        <button onclick="format('underline')"><u>U</u></button>
+
+        <span class="divider"></span>
+
+        <button onclick="format('insertUnorderedList')">•</button>
+        <button onclick="format('insertOrderedList')">1.</button>
+
+        <span class="divider"></span>
+
+        <button onclick="format('justifyLeft')">⬅</button>
+        <button onclick="format('justifyCenter')">⬌</button>
+        <button onclick="format('justifyRight')">➡</button>
+
+        <span class="divider"></span>
+
+        <button onclick="format('undo')">↺</button>
+        <button onclick="format('redo')">↻</button>
+
+        <button type="button"
+                class="table-btn"
+                onmousedown="event.preventDefault();"
+                onclick="toggleTablePicker()">
+            ⊞
+        </button>
+    </div>
+
+    <!-- FIELD INSERT -->
+    <div class="toolbar-group">
+        <select id="fieldSelector" class="form-select">
+            <option value="">--Insert Field--</option>
+            <option value="CandidateName">Candidate Name</option>
+            <option value="Designation">Designation</option>
+            <option value="Department">Department</option>
+            <option value="Location">Location</option>
+            <option value="Salary">Salary</option>
+            <option value="JoiningDate">Joining Date</option>
+        </select>
+
+        <button class="btn btn-outline-primary"
+                type="button"
+                onclick="insertFieldFromToolbar()">
+            Add
+        </button>
+    </div>
+
+    <div id="tablePicker" class="table-picker hidden"></div>
+
+</div>
+
+<!-- DOCUMENT -->
+<div id="documentArea">
+    <div class="page A4" contenteditable="true">
+
+        <h4 class="offer-subtitle">Offer of Employment</h4>
+
+        <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
+
+        <p>
+            We are pleased to offer you employment as
+            <strong data-field="Designation">{{Designation}}</strong> in the
+            <strong data-field="Department">{{Department}}</strong> department at
+            <strong data-field="Location">{{Location}}</strong>.
+        </p>
+
+        <h5>Compensation</h5>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Total CTC</th>
+                <td data-field="Salary">{{Salary}}</td>
+            </tr>
+        </table>
+
+        <p>
+            Your joining date will be
+            <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
+        </p>
+
+        <p>
+            Sincerely,<br />
+            <strong>HR Department</strong>
+        </p>
+
+    </div>
+</div>
+
+<!-- BOTTOM BAR -->
+<div class="bottom-action-bar">
+    <div class="container d-flex justify-content-end gap-2">
+        <button class="btn btn-secondary" onclick="addPage()">Add Page</button>
+        <button class="btn btn-success" onclick="saveLetter()">Save</button>
+    </div>
+</div>
+
+<script>
+    window.offerLetterSaveUrl = '@Url.Action("Save", "OfferLetter")';
+    window.offerLetterIndexUrl = '@Url.Action("Index", "OfferLetter")';
+</script>
+
+<script src="~/Scripts/offerletter.js"></script>
+
+@if (!string.IsNullOrEmpty(Model.LetterBody))
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("documentArea").innerHTML =
+                `@Html.Raw(Model.LetterBody)`;
+        });
+    </script>
+}
