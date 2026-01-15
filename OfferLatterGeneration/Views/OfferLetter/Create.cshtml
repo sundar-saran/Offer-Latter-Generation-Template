@@ -84,38 +84,39 @@
 
 <!-- DOCUMENT -->
 <div id="documentArea">
-    <div class="page A4" contenteditable="true">
+    <div class="page A4">
+        <!-- HEADER -->
+        <div class="page-header">
+            <h4 class="offer-subtitle">Offer of Employment</h4>
+        </div>
 
-        <h4 class="offer-subtitle">Offer of Employment</h4>
+        <!-- BODY -->
+        <div class="page-body" contenteditable="true">
+            <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
+            <p>
+                We are pleased to offer you employment as
+                <strong data-field="Designation">{{Designation}}</strong> in the
+                <strong data-field="Department">{{Department}}</strong> department at
+                <strong data-field="Location">{{Location}}</strong>.
+            </p>
+            <h5>Compensation</h5>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Total CTC</th>
+                    <td data-field="Salary">{{Salary}}</td>
+                </tr>
+            </table>
+            <p>
+                Your joining date will be
+                <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
+            </p>
+            <p>Sincerely,<br /><strong>HR Department</strong></p>
+        </div>
 
-        <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
-
-        <p>
-            We are pleased to offer you employment as
-            <strong data-field="Designation">{{Designation}}</strong> in the
-            <strong data-field="Department">{{Department}}</strong> department at
-            <strong data-field="Location">{{Location}}</strong>.
-        </p>
-
-        <h5>Compensation</h5>
-
-        <table class="table table-bordered">
-            <tr>
-                <th>Total CTC</th>
-                <td data-field="Salary">{{Salary}}</td>
-            </tr>
-        </table>
-
-        <p>
-            Your joining date will be
-            <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
-        </p>
-
-        <p>
-            Sincerely,<br />
-            <strong>HR Department</strong>
-        </p>
-
+        <!-- FOOTER -->
+        <div class="page-footer">
+            Page <span class="page-number">1</span>
+        </div>
     </div>
 </div>
 

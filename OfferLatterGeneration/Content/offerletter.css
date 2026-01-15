@@ -58,6 +58,8 @@
             color: #fff;
         }
 
+
+
 /* TABLE BUTTON */
 .table-btn {
     font-weight: bold;
@@ -71,28 +73,98 @@
     margin: 0 6px;
 }
 
-
-/* PAGE */
 .page {
+    position: relative;
     background: #fff;
+    width: 700px;
+    height: 950px;
     margin: 30px auto;
-    padding: 50px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.15);
-    font-size: 15px;
-    line-height: 1.6;
-    overflow: hidden;
+    border: 1px solid #000;
+    display: flex;
+    overflow: visible;
+    flex-direction: column;
 }
 
-    /* CORRECT PAPER SIZES */
     .page.A4 {
-        width: 794px;
-        height: 1123px;
+        width: 700px;
+        height: 950px;
     }
 
     .page.Letter {
-        width: 816px;
-        height: 1056px;
+        width: 710px;
+        height: 1040px;
     }
+
+.page-header {
+    height: 50px; /* fixed header height */
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.page-footer {
+    font-size: 12px;
+    height: 50px; /* fixed footer height */
+    border-top: 1px solid #ccc;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.page-body {
+    flex: 1; /* take remaining space between header/footer */
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.page-tools {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    opacity: 0;
+    z-index:50;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.page:hover .page-tools {
+    opacity: 1;
+}
+
+.page-tools button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #dc3545;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+    /* HOVER EFFECT */
+    .page-tools button:hover {
+        background: #b02a37;
+        transform: scale(1.1);
+    }
+
+    /* CLICK EFFECT */
+    .page-tools button:active {
+        transform: scale(0.95);
+    }
+
+/* HIDE IN PDF / PRINT */
+@media print {
+    .page-tools {
+        display: none !important;
+    }
+}
+
+
 
 /* BOTTOM BAR */
 .bottom-action-bar {
@@ -124,7 +196,7 @@
 .table-picker {
     position: absolute;
     top: 50px;
-    left:500px;
+    left:670px;
     background: #fff;
     border: 1px solid #ccc;
     padding: 8px;

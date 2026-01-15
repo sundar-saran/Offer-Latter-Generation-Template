@@ -33,11 +33,15 @@
                 <td>
                     <a class="btn btn-primary btn-sm"
                        href="@Url.Action("Edit", "OfferLetter", new { id = item.Id })">
-                        Edit
+                        <i class="bi bi-pencil-square"></i>
                     </a>
                     <a class="btn btn-danger btn-sm ms-1"
                        href="@Url.Action("ExportPdf", "OfferLetter", new { id = item.Id })">
-                        PDF
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </a>
+                    <a class="btn btn-info btn-sm ms-1"
+                       href="@Url.Action("ExportWord", "OfferLetter", new { id = item.Id })">
+                        <i class="bi bi-file-earmark-word"></i>
                     </a>
                 </td>
             </tr>

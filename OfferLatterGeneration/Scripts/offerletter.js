@@ -17,103 +17,120 @@ const offerTemplates = {
 
     default: `
 <div class="page A4" contenteditable="true">
-    <h3 class="offer-subtitle">Offer of Employment</h3>
+    <div class="page-header">Offer of Employment</div>
+    <div class="page-body" contenteditable="true">
 
-    <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
+        <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
 
-    <p>
-        We are pleased to offer you employment as
-        <strong data-field="Designation">{{Designation}}</strong> in the
-        <strong data-field="Department">{{Department}}</strong> department at
-        <strong data-field="Location">{{Location}}</strong>.
-    </p>
+        <p>
+            We are pleased to offer you employment as
+            <strong data-field="Designation">{{Designation}}</strong> in the
+            <strong data-field="Department">{{Department}}</strong> department at
+            <strong data-field="Location">{{Location}}</strong>.
+        </p>
 
-    <h5>Compensation</h5>
-    <table class="table table-bordered">
-        <tr>
-            <th>Total CTC</th>
-            <td data-field="Salary">{{Salary}}</td>
-        </tr>
-    </table>
+        <h5>Compensation</h5>
+        <table class="table table-bordered">
+            <tr>
+                <th>Total CTC</th>
+                <td data-field="Salary">{{Salary}}</td>
+            </tr>
+        </table>
 
-    <p>
-        Your joining date will be
-        <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
-    </p>
+        <p>
+            Your joining date will be
+            <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
+        </p>
 
-    <p>
-        Sincerely,<br />
-        <strong>HR Department</strong>
-    </p>
+        <p>
+            Sincerely,<br />
+            <strong>HR Department</strong>
+        </p>
+    </div>
+    <div class="page-footer">Page <span class="page-number">1</span></div>
+
 </div>
 `,
 
     arit: `
-<div class="page A4" contenteditable="true">
-    <h3 class="company-title">Anand Rathi IT PVT. LTD.</h3>
-    <h5 class="offer-subtitle">Offer Letter</h5>
+<div class="page A4">
+    <div class="page-header">
+        <h3 class="company-title">Anand Rathi IT PVT. LTD.</h3>
+    </div>
 
-    <p>
-        Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,
-    </p>
+    <div class="page-body" contenteditable="true">
+        <h5 class="offer-subtitle">Offer Letter</h5>
 
-    <p>
-        We are pleased to offer you employment as
-        <strong data-field="Designation">{{Designation}}</strong> in the
-        <strong data-field="Department">{{Department}}</strong> department at
-        <strong data-field="Location">{{Location}}</strong>.
-    </p>
+        <p>
+            Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,
+        </p>
 
-    <h5>Compensation</h5>
-    <table class="table table-bordered">
-        <tr>
-            <th>Total CTC</th>
-            <td data-field="Salary">{{Salary}}</td>
-        </tr>
-    </table>
+        <p>
+            We are pleased to offer you employment as
+            <strong data-field="Designation">{{Designation}}</strong> in the
+            <strong data-field="Department">{{Department}}</strong> department at
+            <strong data-field="Location">{{Location}}</strong>.
+        </p>
 
-    <p>
-        Your joining date will be
-        <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
-    </p>
+        <h5>Compensation</h5>
+        <table class="table table-bordered">
+            <tr>
+                <th>Total CTC</th>
+                <td data-field="Salary">{{Salary}}</td>
+            </tr>
+        </table>
 
-    <p>
-        Regards,<br />
-        <strong>ARIT HR Team</strong>
-    </p>
+        <p>
+            Your joining date will be
+            <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
+        </p>
+
+        <p>
+            Regards,<br />
+            <strong>ARIT HR Team</strong>
+        </p>
+    </div>
+    <div class="page-footer">Page <span class="page-number">1</span></div>
 </div>
 `,
 
     other: `
-<div class="page A4" contenteditable="true">
-    <h4 class="offer-subtitle">Appointment Letter</h4>
+<div class="page A4">
+        <div class="page-header">
+            <h4 class="offer-subtitle">Appointment Letter</h4>
+        </div>
 
-    <p>Hello <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
+    <div class="page-body" contenteditable="true">
 
-    <p>
-        We are pleased to offer you employment as
-        <strong data-field="Designation">{{Designation}}</strong> in the
-        <strong data-field="Department">{{Department}}</strong> department at
-        <strong data-field="Location">{{Location}}</strong>.
-    </p>
+        <p>Hello <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
 
-    <h5>Compensation</h5>
-    <table class="table table-bordered">
-        <tr>
-            <th>Total CTC</th>
-            <td data-field="Salary">{{Salary}}</td>
-        </tr>
-    </table>
+        <p>
+            We are pleased to offer you employment as
+            <strong data-field="Designation">{{Designation}}</strong> in the
+            <strong data-field="Department">{{Department}}</strong> department at
+            <strong data-field="Location">{{Location}}</strong>.
+        </p>
 
-    <p>
-        Your joining date will be
-        <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
-    </p>
+        <h5>Compensation</h5>
+        <table class="table table-bordered">
+            <tr>
+                <th>Total CTC</th>
+                <td data-field="Salary">{{Salary}}</td>
+            </tr>
+        </table>
 
-    <p>
-        Best Wishes,<br/>
-        <strong>Management</strong>
-    </p>
+        <p>
+            Your joining date will be
+            <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
+        </p>
+
+        <p>
+            Best Wishes,<br/>
+            <strong>Management</strong>
+        </p>
+    </div>
+    <div class="page-footer">Page <span class="page-number">1</span></div>
+
 </div>
 `
 };
@@ -161,21 +178,48 @@ window.onload = function () {
     }
 };
 
-function addPage() {
-    const pageSize = document.getElementById('pageSize').value;
+function updatePageNumbers() {
+    const pages = document.querySelectorAll(".page");
+    pages.forEach((page, index) => {
+        const numberEl = page.querySelector(".page-number");
+        if (numberEl) numberEl.innerText = index + 1;
+    });
+}
 
-    const page = document.createElement('div');
-    page.className = 'page ' + pageSize;
-    page.setAttribute('contenteditable', 'true');
+// Call this whenever you add/remove pages
+function addPage() {
+    const pageSize = document.getElementById("pageSize").value;
+
+    const firstPage = document.querySelector(".page");
+    const headerHTML = firstPage.querySelector(".page-header").innerHTML;
+    const footerHTML = firstPage.querySelector(".page-footer").innerHTML;
+
+    const page = document.createElement("div");
+    page.className = "page " + pageSize;
 
     page.innerHTML = `
         <div class="page-tools">
-            <button onclick="removePage(this)" title="Remove Page">✖</button>
+            <button onclick="removePage(this)">✖</button>
         </div>
-        <p><br/></p>
+
+        <div class="page-header">
+            ${headerHTML}
+        </div>
+
+        <div class="page-body" contenteditable="true">
+            <p><br/></p>
+        </div>
+
+        <div class="page-footer">
+            ${footerHTML}
+        </div>
     `;
 
-    document.getElementById('documentArea').appendChild(page);
+    document.getElementById("documentArea").appendChild(page);
+    updatePageNumbers();
+
+    // Focus cursor into new page
+    placeCaretAtStart(page.querySelector(".page-body"));
 }
 
 function removePage(btn) {
@@ -185,6 +229,7 @@ function removePage(btn) {
         return;
     }
     page.remove();
+    updatePageNumbers();
 }
 
 function getFieldValue(fieldName) {
@@ -255,7 +300,6 @@ function saveLetter() {
 
 
 /* ================= TABLE PICKER ================= */
-
 var tablePicker = null;
 var maxRows = 8;
 var maxCols = 6;
@@ -393,3 +437,116 @@ function insertHtmlAtCursor(html) {
         savedRange = range;
     }
 }
+
+function getPageHeight(page) {
+    return page.clientHeight;
+}
+
+function autoPaginateAllPages() {
+    const pages = document.querySelectorAll(".page");
+    pages.forEach(page => paginatePage(page));
+}
+
+function paginatePage(page) {
+    const pageBody = page.querySelector(".page-body");
+    const pageHeight = page.clientHeight;
+    const headerHeight = page.querySelector(".page-header").offsetHeight;
+    const footerHeight = page.querySelector(".page-footer").offsetHeight;
+
+    const maxBodyHeight = pageHeight - headerHeight - footerHeight;
+
+    while (pageBody.scrollHeight > maxBodyHeight) {
+        moveContentToNextPage(pageBody, maxBodyHeight);
+    }
+}
+
+function placeCaretAtStart(el) {
+    el.focus();
+
+    const range = document.createRange();
+    const sel = window.getSelection();
+
+    let node = el.firstChild;
+    while (node && node.nodeType !== Node.TEXT_NODE) {
+        node = node.firstChild;
+    }
+
+    if (!node) {
+        node = document.createTextNode("");
+        el.appendChild(node);
+    }
+
+    range.setStart(node, 0);
+    range.collapse(true);
+
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    savedRange = range;
+}
+
+function moveContentToNextPage(pageBody, maxBodyHeight) {
+    let nextPage = pageBody.parentElement.nextElementSibling;
+
+    if (!nextPage || !nextPage.classList.contains("page")) {
+        nextPage = createNewPageWithHeaderFooter();
+        pageBody.parentElement.after(nextPage);
+    }
+
+    const nextBody = nextPage.querySelector(".page-body");
+
+    let movedNode = null;
+
+    while (pageBody.scrollHeight > maxBodyHeight) {
+        movedNode = pageBody.lastElementChild;
+        if (!movedNode) break;
+        nextBody.prepend(movedNode);
+    }
+
+    placeCaretAtStart(nextBody);
+
+    updatePageNumbers();
+}
+
+function createNewPageWithHeaderFooter() {
+    const pageSize = document.getElementById("pageSize")?.value || "A4";
+
+    const firstPage = document.querySelector(".page");
+    const headerHTML = firstPage.querySelector(".page-header").innerHTML;
+    const footerHTML = firstPage.querySelector(".page-footer").innerHTML;
+
+    const page = document.createElement("div");
+    page.className = "page " + pageSize;
+
+    page.innerHTML = `
+        <div class="page-tools">
+            <button onclick="removePage(this)">✖</button>
+        </div>
+
+        <div class="page-header">
+            ${headerHTML}
+        </div>
+
+        <div class="page-body" contenteditable="true">
+            <p><br/></p>
+        </div>
+
+        <div class="page-footer">
+            ${footerHTML}
+        </div>
+    `;
+
+    return page;
+}
+
+function updatePageNumbers() {
+    document.querySelectorAll(".page").forEach((page, index) => {
+        page.querySelector(".page-number").innerText = index + 1;
+    });
+}
+
+document.addEventListener("input", function (e) {
+    if (e.target.closest(".page-body")) {
+        autoPaginateAllPages();
+    }
+});

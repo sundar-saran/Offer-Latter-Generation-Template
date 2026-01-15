@@ -1,7 +1,7 @@
 ﻿@model OfferLatterGeneration.Models.OfferLetterModel
-    @{ 
-        Layout = null;
-    }
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html>
@@ -9,14 +9,63 @@
     <meta charset="utf-8" />
     <title>Offer Letter</title>
 
+    <link href="@Url.Content("~/Content/offerletter.css")" rel="stylesheet" />
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
+            margin: 0;
+            background: white;
         }
 
+        .toolbar-top,
+        .bottom-action-bar {
+            display: none !important;
+        }
         .page {
-            padding: 30px;
+            position: relative;
+/*            width: 210mm;
+            height: 297mm;*/
+            margin: 0 auto;
+            border: none !important;
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+        .page-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .page-footer {
+            position: absolute;
+            font-size:12px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            text-align: right;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .page-body {
+            position: absolute;
+            top: 60px;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
         }
 
         table {
@@ -31,6 +80,17 @@
         th, td {
             padding: 6px;
         }
+
+        .page-tools {
+            display: none !important;
+        }
+
+        @@media print {
+            .page {
+                min-height: auto !important;
+            }
+        }
+
     </style>
 </head>
 <body>
