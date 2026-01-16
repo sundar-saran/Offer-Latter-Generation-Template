@@ -1,5 +1,6 @@
 ﻿@model OfferLatterGeneration.Models.OfferLetterModel
 <link href="~/Content/offerletter.css" rel="stylesheet" />
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
 
 <input type="hidden" id="OfferLetterId" value="@Model.Id" />
 <input type="hidden" id="fallback_CandidateName" value="@Model.CandidateName" />
@@ -9,12 +10,13 @@
 <input type="hidden" id="fallback_Salary" value="@Model.Salary" />
 <input type="hidden" id="fallback_JoiningDate" value="@Model.JoiningDate" />
 
+<div class="toolbar-top" id="editorToolbar">
 
-<div class="toolbar-top">
-    <div class="col-md-12">
-        <!-- LEFT CONTROLS -->
+    <!-- ROW 1 : DROPDOWNS -->
+    <div class="toolbar-row">
+
         <div class="toolbar-group">
-            <strong>Select Company Name</strong>
+            <label>Select Company</label>
             <select id="companyTemplate"
                     class="form-select"
                     onchange="onCompanyTemplateChange()"
@@ -23,138 +25,26 @@
                 <option value="arit">ARIT</option>
                 <option value="other">Other</option>
             </select>
+        </div>
 
-            <strong>Select Page Size</strong>
+        <div class="toolbar-group">
+            <label>Page Size</label>
             <select id="pageSize" class="form-select" onchange="changePageSize()">
                 <option value="A4">A4</option>
                 <option value="Letter">Letter</option>
             </select>
         </div>
-        <!-- FONT CONTROLS -->
-        <div class="toolbar-group">
-            <strong>Select Font Style</strong>
-            <select id="fontFamily" class="form-select" onchange="changeFontFamily(this.value)">
-                <option value="">--Font Style--</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Arial">Arial</option>
-                <option value="Calibri">Calibri</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Verdana">Verdana</option>
-            </select>
-
-            <strong>Select Font Size</strong>
-            <select id="fontSize" class="form-select" onchange="changeFontSize(this.value)">
-                <option value="">--Font Size--</option>
-                <option value="1">10</option>
-                <option value="2">12</option>
-                <option value="3">14</option>
-                <option value="4">16</option>
-                <option value="5">18</option>
-                <option value="6">24</option>
-                <option value="7">32</option>
-            </select>
-        </div>
-
-        <!-- FIELD INSERT -->
-        <div class="toolbar-group">
-            <strong>Select Element</strong>
-            <select id="fieldSelector" class="form-select">
-                <option value="">--Insert Field--</option>
-                <option value="CandidateName">Candidate Name</option>
-                <option value="Designation">Designation</option>
-                <option value="Department">Department</option>
-                <option value="Location">Location</option>
-                <option value="Salary">Salary</option>
-                <option value="JoiningDate">Joining Date</option>
-            </select>
-
-            <button class="btn btn-outline-primary"
-                    type="button"
-                    onclick="insertFieldFromToolbar()">
-                Add
-            </button>
+        <div class="ms-auto d-flex justify-content-end gap-2">
+            <button class="btn btn-secondary" onclick="addPage()" value="Add Page"><i class="bi bi-file-earmark-plus"></i></button>
+            <button class="btn btn-success" onclick="saveLetter()" value="save"><i class="bi bi-save"></i></button>
         </div>
     </div>
-    <div class="col-md-12">
-        <!-- EDITOR BUTTONS -->
-        <div class="editor-toolbar">
-            <button onclick="format('bold')"><b>B</b></button>
-            <button onclick="format('italic')"><i>I</i></button>
-            <button onclick="format('underline')"><u>U</u></button>
-
-            <span class="divider"></span>
-
-            <button onclick="format('insertUnorderedList')">•</button>
-            <button onclick="format('insertOrderedList')">1.</button>
-
-            <span class="divider"></span>
-
-            <button onclick="format('justifyLeft')">⬅</button>
-            <button onclick="format('justifyCenter')">⬌</button>
-            <button onclick="format('justifyRight')">➡</button>
-
-            <span class="divider"></span>
-
-            <button onclick="format('undo')">↺</button>
-            <button onclick="format('redo')">↻</button>
-
-            <button type="button"
-                    class="table-btn"
-                    onmousedown="event.preventDefault();"
-                    onclick="toggleTablePicker()">
-                ⊞
-            </button>
-        </div>
-    </div>
-    <div id="tablePicker" class="table-picker hidden"></div>
 
 </div>
 
 <!-- DOCUMENT -->
-<div id="documentArea">
-    <div class="page A4">
-        <!-- HEADER -->
-        <div class="page-header" contenteditable="true">
-            <h4 class="offer-subtitle">Offer of Employment</h4>
-        </div>
+<div id="documentArea"></div>
 
-        <!-- BODY -->
-        <div class="page-body" contenteditable="true">
-            <p>Dear <strong data-field="CandidateName">{{CandidateName}}</strong>,</p>
-            <p>
-                We are pleased to offer you employment as
-                <strong data-field="Designation">{{Designation}}</strong> in the
-                <strong data-field="Department">{{Department}}</strong> department at
-                <strong data-field="Location">{{Location}}</strong>.
-            </p>
-            <h5>Compensation</h5>
-            <table class="table table-bordered">
-                <tr>
-                    <th>Total CTC</th>
-                    <td data-field="Salary">{{Salary}}</td>
-                </tr>
-            </table>
-            <p>
-                Your joining date will be
-                <strong data-field="JoiningDate">{{JoiningDate}}</strong>.
-            </p>
-            <p>Sincerely,<br /><strong>HR Department</strong></p>
-        </div>
-
-        <!-- FOOTER -->
-        <div class="page-footer">
-            Page <span class="page-number">1</span>
-        </div>
-    </div>
-</div>
-
-<!-- BOTTOM BAR -->
-<div class="bottom-action-bar">
-    <div class="container d-flex justify-content-end gap-2">
-        <button class="btn btn-secondary" onclick="addPage()">Add Page</button>
-        <button class="btn btn-success" onclick="saveLetter()">Save</button>
-    </div>
-</div>
 
 <script>
     window.offerLetterSaveUrl = '@Url.Action("Save", "OfferLetter")';
@@ -167,8 +57,15 @@
 {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("documentArea").innerHTML =
-                `@Html.Raw(Model.LetterBody)`;
+
+            const docArea = document.getElementById("documentArea");
+            docArea.innerHTML = `@Html.Raw(Model.LetterBody)`;
+
+            setTimeout(() => {
+                initEditors();
+                updatePageNumbers();
+            }, 50);
         });
     </script>
 }
+

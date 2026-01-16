@@ -10,6 +10,8 @@
     <title>Offer Letter</title>
 
     <link href="@Url.Content("~/Content/offerletter.css")" rel="stylesheet" />
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+
 
     <style>
         body {
@@ -21,9 +23,10 @@
         .bottom-action-bar {
             display: none !important;
         }
+
         .page {
             position: relative;
-/*            width: 210mm;
+            /*            width: 210mm;
             height: 297mm;*/
             margin: 0 auto;
             border: none !important;
@@ -31,32 +34,11 @@
             page-break-after: always;
         }
 
-        .page:last-child {
-            page-break-after: auto;
-        }
-        .page-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            text-align: center;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
+            .page:last-child {
+                page-break-after: auto;
+            }
 
-        .page-footer {
-            position: absolute;
-            font-size:12px;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            text-align: right;
-            padding: 10px;
-            border-top: 1px solid #ccc;
-        }
-
+        
         .page-body {
             position: absolute;
             top: 60px;
@@ -90,7 +72,6 @@
                 min-height: auto !important;
             }
         }
-
     </style>
 </head>
 <body>

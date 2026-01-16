@@ -124,7 +124,7 @@
   margin-right: calc(-0.5 * var(--bs-gutter-x));
 }
 .row > * {
-  box-sizing: border-box;
+/*  box-sizing: border-box;*/
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;

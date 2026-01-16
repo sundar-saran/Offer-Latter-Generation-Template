@@ -243,7 +243,6 @@ namespace OfferLatterGeneration.Controllers
                         // Clean closing div
                         var html = pages[i].Replace("</div>", "");
 
-                        // Convert HTML → Word
                         converter.ParseHtml(html);
 
                         // ✅ INSERT PAGE BREAK (EXCEPT LAST PAGE)
