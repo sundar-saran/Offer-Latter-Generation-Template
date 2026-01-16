@@ -3,6 +3,8 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 /* TOOLBAR */
 .toolbar-top {
     position: sticky;
@@ -12,20 +14,22 @@
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     z-index: 10;
-    display: flex;
+/*    display: flex;*/
     align-items: center;
     gap: 12px;
 }
 
 /* GROUPS */
 .toolbar-group {
+    top: 20px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
 }
 
 /* SELECTS */
 .toolbar-top .form-select {
+    top: 20px;
     height: 34px;
     font-size: 14px;
     min-width: 130px;
@@ -79,7 +83,6 @@
     width: 700px;
     height: 950px;
     margin: 30px auto;
-    border: 1px solid #000;
     display: flex;
     overflow: visible;
     flex-direction: column;
@@ -96,7 +99,7 @@
     }
 
 .page-header {
-    height: 50px; /* fixed header height */
+    height: 50px;
     border-bottom: 1px solid #ccc;
     text-align: center;
     padding: 10px;
@@ -105,7 +108,7 @@
 
 .page-footer {
     font-size: 12px;
-    height: 50px; /* fixed footer height */
+    height: 50px;
     border-top: 1px solid #ccc;
     text-align: right;
     padding: 10px;
@@ -113,10 +116,9 @@
 }
 
 .page-body {
-    flex: 1; /* take remaining space between header/footer */
+    flex: 1;
     padding: 20px;
     overflow: hidden;
-    box-sizing: border-box;
 }
 
 .page-tools {
@@ -124,7 +126,6 @@
     top: 8px;
     right: 8px;
     opacity: 0;
-    z-index:50;
     transition: opacity 0.2s ease-in-out;
 }
 
@@ -228,4 +229,54 @@
     background-color: #f2f2f2;
     cursor: not-allowed;
     opacity: 0.7;
+}
+/* ===== DOCX STYLE ===== */
+
+.page-body {
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+}
+
+    .page-body p {
+        margin: 0 0 12px 0;
+        text-align: justify;
+    }
+
+.doc-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-decoration: underline;
+}
+
+.doc-right {
+    text-align: right;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 16px 0 6px 0;
+}
+
+.company-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.company-subtitle {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.page-header {
+    text-align: center;
+}
+.toolbar-top .form-select {
+    height: 34px;
+    font-size: 14px;
+    min-width: 140px;
 }

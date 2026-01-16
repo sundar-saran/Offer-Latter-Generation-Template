@@ -11,73 +11,101 @@
 
 
 <div class="toolbar-top">
+    <div class="col-md-12">
+        <!-- LEFT CONTROLS -->
+        <div class="toolbar-group">
+            <strong>Select Company Name</strong>
+            <select id="companyTemplate"
+                    class="form-select"
+                    onchange="onCompanyTemplateChange()"
+                    @(Model.Id > 0 ? "disabled" : "")>
+                <option value="default">Default</option>
+                <option value="arit">ARIT</option>
+                <option value="other">Other</option>
+            </select>
 
-    <!-- LEFT CONTROLS -->
-    <div class="toolbar-group">
-        <select id="companyTemplate"
-                class="form-select"
-                onchange="onCompanyTemplateChange()"
-                @(Model.Id > 0 ? "disabled" : "")>
-            <option value="default">Default</option>
-            <option value="arit">ARIT</option>
-            <option value="other">Other</option>
-        </select>
+            <strong>Select Page Size</strong>
+            <select id="pageSize" class="form-select" onchange="changePageSize()">
+                <option value="A4">A4</option>
+                <option value="Letter">Letter</option>
+            </select>
+        </div>
+        <!-- FONT CONTROLS -->
+        <div class="toolbar-group">
+            <strong>Select Font Style</strong>
+            <select id="fontFamily" class="form-select" onchange="changeFontFamily(this.value)">
+                <option value="">--Font Style--</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Arial">Arial</option>
+                <option value="Calibri">Calibri</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Verdana">Verdana</option>
+            </select>
 
-        <select id="pageSize" class="form-select" onchange="changePageSize()">
-            <option value="A4">A4</option>
-            <option value="Letter">Letter</option>
-        </select>
+            <strong>Select Font Size</strong>
+            <select id="fontSize" class="form-select" onchange="changeFontSize(this.value)">
+                <option value="">--Font Size--</option>
+                <option value="1">10</option>
+                <option value="2">12</option>
+                <option value="3">14</option>
+                <option value="4">16</option>
+                <option value="5">18</option>
+                <option value="6">24</option>
+                <option value="7">32</option>
+            </select>
+        </div>
+
+        <!-- FIELD INSERT -->
+        <div class="toolbar-group">
+            <strong>Select Element</strong>
+            <select id="fieldSelector" class="form-select">
+                <option value="">--Insert Field--</option>
+                <option value="CandidateName">Candidate Name</option>
+                <option value="Designation">Designation</option>
+                <option value="Department">Department</option>
+                <option value="Location">Location</option>
+                <option value="Salary">Salary</option>
+                <option value="JoiningDate">Joining Date</option>
+            </select>
+
+            <button class="btn btn-outline-primary"
+                    type="button"
+                    onclick="insertFieldFromToolbar()">
+                Add
+            </button>
+        </div>
     </div>
+    <div class="col-md-12">
+        <!-- EDITOR BUTTONS -->
+        <div class="editor-toolbar">
+            <button onclick="format('bold')"><b>B</b></button>
+            <button onclick="format('italic')"><i>I</i></button>
+            <button onclick="format('underline')"><u>U</u></button>
 
-    <!-- EDITOR BUTTONS -->
-    <div class="editor-toolbar">
-        <button onclick="format('bold')"><b>B</b></button>
-        <button onclick="format('italic')"><i>I</i></button>
-        <button onclick="format('underline')"><u>U</u></button>
+            <span class="divider"></span>
 
-        <span class="divider"></span>
+            <button onclick="format('insertUnorderedList')">•</button>
+            <button onclick="format('insertOrderedList')">1.</button>
 
-        <button onclick="format('insertUnorderedList')">•</button>
-        <button onclick="format('insertOrderedList')">1.</button>
+            <span class="divider"></span>
 
-        <span class="divider"></span>
+            <button onclick="format('justifyLeft')">⬅</button>
+            <button onclick="format('justifyCenter')">⬌</button>
+            <button onclick="format('justifyRight')">➡</button>
 
-        <button onclick="format('justifyLeft')">⬅</button>
-        <button onclick="format('justifyCenter')">⬌</button>
-        <button onclick="format('justifyRight')">➡</button>
+            <span class="divider"></span>
 
-        <span class="divider"></span>
+            <button onclick="format('undo')">↺</button>
+            <button onclick="format('redo')">↻</button>
 
-        <button onclick="format('undo')">↺</button>
-        <button onclick="format('redo')">↻</button>
-
-        <button type="button"
-                class="table-btn"
-                onmousedown="event.preventDefault();"
-                onclick="toggleTablePicker()">
-            ⊞
-        </button>
+            <button type="button"
+                    class="table-btn"
+                    onmousedown="event.preventDefault();"
+                    onclick="toggleTablePicker()">
+                ⊞
+            </button>
+        </div>
     </div>
-
-    <!-- FIELD INSERT -->
-    <div class="toolbar-group">
-        <select id="fieldSelector" class="form-select">
-            <option value="">--Insert Field--</option>
-            <option value="CandidateName">Candidate Name</option>
-            <option value="Designation">Designation</option>
-            <option value="Department">Department</option>
-            <option value="Location">Location</option>
-            <option value="Salary">Salary</option>
-            <option value="JoiningDate">Joining Date</option>
-        </select>
-
-        <button class="btn btn-outline-primary"
-                type="button"
-                onclick="insertFieldFromToolbar()">
-            Add
-        </button>
-    </div>
-
     <div id="tablePicker" class="table-picker hidden"></div>
 
 </div>
@@ -86,7 +114,7 @@
 <div id="documentArea">
     <div class="page A4">
         <!-- HEADER -->
-        <div class="page-header">
+        <div class="page-header" contenteditable="true">
             <h4 class="offer-subtitle">Offer of Employment</h4>
         </div>
 
