@@ -1,7 +1,6 @@
 ﻿@model OfferLatterGeneration.Models.OfferLetterModel
 <link href="~/Content/offerletter.css" rel="stylesheet" />
 <script src="~/Scripts/tinymce/tinymce.min.js"></script>
-
 <input type="hidden" id="OfferLetterId" value="@Model.Id" />
 <input type="hidden" id="fallback_CandidateName" value="@Model.CandidateName" />
 <input type="hidden" id="fallback_Designation" value="@Model.Designation" />
@@ -9,12 +8,9 @@
 <input type="hidden" id="fallback_Location" value="@Model.Location" />
 <input type="hidden" id="fallback_Salary" value="@Model.Salary" />
 <input type="hidden" id="fallback_JoiningDate" value="@Model.JoiningDate" />
-
 <div class="toolbar-top" id="editorToolbar">
-
     <!-- ROW 1 : DROPDOWNS -->
     <div class="toolbar-row">
-
         <div class="toolbar-group">
             <label>Select Company</label>
             <select id="companyTemplate"
@@ -26,7 +22,6 @@
                 <option value="other">Other</option>
             </select>
         </div>
-
         <div class="toolbar-group">
             <label>Page Size</label>
             <select id="pageSize" class="form-select" onchange="changePageSize()">
@@ -39,33 +34,26 @@
             <button class="btn btn-success" onclick="saveLetter()" value="save"><i class="bi bi-save"></i></button>
         </div>
     </div>
-
 </div>
-
 <!-- DOCUMENT -->
 <div id="documentArea"></div>
-
-
 <script>
     window.offerLetterSaveUrl = '@Url.Action("Save", "OfferLetter")';
     window.offerLetterIndexUrl = '@Url.Action("Index", "OfferLetter")';
 </script>
-
 <script src="~/Scripts/offerletter.js"></script>
+
 
 @if (!string.IsNullOrEmpty(Model.LetterBody))
 {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
             const docArea = document.getElementById("documentArea");
             docArea.innerHTML = `@Html.Raw(Model.LetterBody)`;
-
             setTimeout(() => {
                 initEditors();
-                updatePageNumbers();
-            }, 50);
+                forcePaginateAndUpdate(); // new helper
+            }, 400);
         });
     </script>
 }
-

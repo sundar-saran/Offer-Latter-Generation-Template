@@ -2,12 +2,10 @@
     background: #f4f6f8;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-
 /* TOOLBAR CONTAINER */
 .toolbar-top {
     position: sticky;
-    top: 70px;
+    top: 57px;
     background: #fff;
     padding: 12px;
     border-radius: 6px;
@@ -17,7 +15,6 @@
     flex-direction: column;
     gap: 10px;
 }
-
 /* ROWS */
 .toolbar-row {
     display: flex;
@@ -25,14 +22,12 @@
     flex-wrap: wrap;
     gap: 16px;
 }
-
 /* GROUP */
 .toolbar-group {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-
     /* LABEL */
     .toolbar-group label {
         font-size: 13px;
@@ -40,15 +35,12 @@
         color: #333;
         white-space: nowrap;
     }
-
 /* SELECT */
 .toolbar-top .form-select {
     height: 34px;
     font-size: 14px;
-    width:20px;
-    min-width: 140px;
+    min-width: 140px; /* Removed invalid width:20px */
 }
-
 /* EDITOR ROW */
 .editor-row {
     border-top: 1px solid #e2e2e2;
@@ -58,7 +50,6 @@
 .page-body img:focus {
     outline: 2px solid #0d6efd;
 }
-
 /* IMAGE CONTAINER */
 .img-wrapper {
     display: inline-block;
@@ -66,18 +57,17 @@
     max-width: 100%;
     margin: 10px 0;
 }
-
     /* IMAGE */
     .img-wrapper img {
         display: block;
         max-width: 100%;
         height: auto;
     }
-
     /* SHOW BORDER WHEN SELECTED */
     .img-wrapper.selected {
         outline: 2px solid #0d6efd;
     }
+
 .doc-image {
     display: inline-block;
     position: relative;
@@ -112,8 +102,6 @@
     background: #0d6efd;
     cursor: se-resize;
 }
-
-
 /* RESIZE HANDLE */
 .img-resize-handle {
     width: 12px;
@@ -125,16 +113,13 @@
     cursor: se-resize;
     border-radius: 2px;
 }
-
-
-
 /* TABLE BUTTON */
 .table-btn {
     font-weight: bold;
 }
 
-
 .page {
+    top:20px;
     position: relative;
     background: #fff;
     margin: 30px auto;
@@ -152,15 +137,6 @@
         height: 1056px;
     }
 
-    .page.A4 .page-body {
-        max-height: calc(950px - 40px);
-    }
-
-    .page.Letter .page-body {
-        max-height: calc(1040px - 40px);
-    }
-
-
 .page-section {
     padding: 12px;
 }
@@ -174,23 +150,21 @@
     font-size: 12px;
 }
 
-
-
 .page-body {
     flex: 1;
-    top:20px;
+    top: 20px;
     padding: 25px;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 [contenteditable="true"] {
     caret-color: #000;
 }
 
-[contenteditable="true"]:focus {
-    outline: none;
-    box-shadow: none;
-}
+    [contenteditable="true"]:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
 .page-header:focus,
 .page-body:focus,
@@ -198,7 +172,6 @@
     outline: none;
     box-shadow: none;
 }
-
 
 .page-tools {
     position: absolute;
@@ -225,27 +198,21 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.3);
     transition: transform 0.2s ease, background 0.2s ease;
 }
-
     /* HOVER EFFECT */
     .page-tools button:hover {
         background: #b02a37;
         transform: scale(1.1);
     }
-
     /* CLICK EFFECT */
     .page-tools button:active {
         transform: scale(0.95);
     }
-
 /* HIDE IN PDF / PRINT */
 @media print {
     .page-tools {
         display: none !important;
     }
 }
-
-
-
 /* BOTTOM BAR */
 .bottom-action-bar {
     position: sticky;
@@ -255,13 +222,15 @@
     padding: 12px;
     box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
 }
+
 #documentArea {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .company-title {
-/*    text-align: center;*/
+    /* text-align: center;*/
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -278,7 +247,6 @@
     opacity: 0.7;
 }
 /* ===== DOCX STYLE ===== */
-
 .page-body {
     font-family: "Times New Roman", serif;
     font-size: 14px;
@@ -324,4 +292,3 @@
     font-size: 14px;
     min-width: 140px;
 }
-
